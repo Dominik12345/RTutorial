@@ -16,12 +16,11 @@ rm(list=ls())
 # 3.1 Functions             #
 #############################
 
-# Functions and methods are predefined procedures.
+# Functions are predefined procedures.
 
 # We define a function with a name 'TestFunction'
 # that gets one 'argument' called 'word' within the 
 # definition.
-
 TestFunction <- function(word) {
   print(word)
   return(NULL)
@@ -35,18 +34,10 @@ output <- TestFunction(word = 'Hello World!')
 # 3.2 Exercise              #
 #############################
 
-data <- list()
+data <- c(1,2,3,4,5,6)
 
-for (i in 1:5) {
-  data[[paste('y', as.character(i), sep = '')]] <- matrix(
-          data = rnorm(n = 8**2, mean = i, sd = 0.1 * i), ncol = 8)
-}
-
-# Problem: Write a function, that accepts a list of same size numeric matrices and 
-#          returns a dataframe showing the mean and standard deviation of 
-#          the k-th column of each matrix.
-#          Try to use only the already known basic operations and functions and 
-#         nrow(A) to get the .
+# Problem: Write a function MyAnalysis that accepts a numerics vector and returns the mean 
+#          and standard deviation.
 
 #############################
 # 3.3 apply, sapply, lapply #
@@ -64,8 +55,13 @@ val2 <- rnorm(n = 4, mean = 10, sd = 5)
 # The functions apply() and sapply() simplify calculations that 
 # are reapeated over matrices and data.frames.
 
-# For matrices (and arrays) use apply and
-# for data.frames use sapply and lapply.
+# for matrices (and arrays) use apply
+res1 <- apply(X = mat, MARGIN = 2 ,FUN = mean)
+
+# for data.frames use sapply and lapply
+res2 <- sapply(df, mean)
+
+res3 <- lapply(df,mean)
 
 # Questions: What is the difference between sapply and lapply ?
 
@@ -84,4 +80,3 @@ data <- matrix( rnorm(n = 30000, mean = 1, sd = 0.2) ,
 #          Measure the computation time using system.time().
 #          You can use the build-in functions max() and nrow() as 
 #          well as all().
-

@@ -17,52 +17,93 @@ rm(list=ls())
 #     and Exmaples          #      
 #############################
 
+########
+# NULL #
+########
 
-# NULL
-y <- NULL
+# Initialize a variable x with the value NULL.
 
-# variable x is initialized with the value NULL
+x <- 0
+
+# Check mode(x)
 
 mode(x)
 
-# logicals
+############
+# logicals #
+############
+
+#Initialize A and B with the values TRUE and FALSE.
 
 A <- TRUE
 B <- FALSE
 
-A & B
-
-A | B
+# Check mode(A)
 
 mode(A)
 
-# numerics
+# Question: Which effect have the operatons A & B and A | B ?
+
+A & B # and
+A | B # or
+
+# Note: They return logicals 
+
+############
+# numerics #
+############
+
+# Initialize x with the value 7 and check mode(x)
 
 x <- 7
 
+# Initialize y with the value x
+
 y <- x
 
-y <- 3.9
+# Change the value if y to 3.1. 
 
-mode(x)
+y <- 3.1
 
-# integers
+# Did you notice something?
+
+# Note: y <- x copies the value of x
+
+############
+# integers #
+############
+
+# Check is.integer(x)
 
 is.integer(x)
+
+# Now convert x and y into integers using as.integer(x)
 
 x <- as.integer(x)
 y <- as.integer(y)
 
-# complex numbers
+###################
+# complex numbers #
+###################
+
+# Initialize z with the value 1 + 1i
 
 z <- 1 + 1i
 
+# Check mode(z)
+
 mode(z)
 
-# characters
+##############
+# characters #
+##############
+
+# Initialize word1 and word2 with 'one' and 'two'
 
 word1 <- 'one'
 word2 <- 'two'
+
+# Check mode(word1)
 
 word3 = paste(word1, word2)
 
@@ -80,30 +121,20 @@ sub('wo', 'hree', w)
 x <- 3
 y <- 4
 
-x + y ; x * y # ";" separates statements
-x - y 
-x / y
+# Try to do basic numeric calculations.
 
+x + y
+# etc
 
-x*2 # skalar multiples
+# Try to compute powers.
+x**2
 
-x**2 # powers
-
-x^2 # powers
-
-# comparisons return logicals
+# Try to do logical comparisons.
 
 x <- 3
 y <- 'Hans'
 
 x == y
-
-x != y
-
-y <- 4
-
-x > y
-x >= y
 
 #############################
 # 1.3 If statements         #      
@@ -146,7 +177,6 @@ for (k in (1:10) ) {
 
 n <- 7.25
 
-# Possible solution:
 
 if (!is.integer(n)) {
   print('n has to be integer')
@@ -158,8 +188,5 @@ if (!is.integer(n)) {
   }
   print(factorial)
 }
-
-
-
 
 

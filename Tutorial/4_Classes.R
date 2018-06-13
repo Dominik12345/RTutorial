@@ -24,16 +24,19 @@ song2 <- list('title' = 'Highway to Hell',
 
 
 # Check the class of song1
+print(class(song1))
 
 # We define the class 'song' implicitly. 
 attr(song1, 'class') <- 'song'
 class(song2) <- 'song'
 
+print(class(song1))
 
 # We now want to define some generic functions for the class 'song'.
 
 # Try methods(print). You will see all classes, for which print() is 
 # defined.
+methods(print)
 
 # We now define print() for the class 'song'
 print.song <- function(mysong) {
@@ -59,7 +62,7 @@ get_artist.song <- function(object) {
 # 1) Write an is.song method.
 # 2) Implement a method play. Use the build-in function
 #    browseURL.
-# 2) Implement a constructor function.
+# 3) Implement a constructor function.
 
 #############################
 # 4.3 formal S4             #

@@ -34,18 +34,11 @@ output <- TestFunction(word = 'Hello World!')
 # 3.2 Exercise              #
 #############################
 
-data <- list()
+data <- c(1,2,3,4,5,6)
 
-for (i in 1:5) {
-  data[[paste('y', as.character(i), sep = '')]] <- matrix(
-          data = rnorm(n = 8**2, mean = i, sd = 0.1 * i), ncol = 8)
-}
+# Problem: Write a function MyAnalysis that accepts a numerics vector and returns the mean 
+#          and standard deviation.
 
-# Problem: Write a function, that accepts a list of same size numeric matrices and 
-#          returns a dataframe showing the mean and standard deviation of 
-#          the k-th column of each matrix.
-#          Try to use only the already known basic operations and functions and 
-#         nrow(A) to get the .
 
 # Possible solution:
 
@@ -67,32 +60,12 @@ MyStd <- function(vec) {
     return(temp.std)
     }
 
-MyAnalysis <- function(data, k) {
-
-  labels <- names(data)
-  result <- data.frame(row.names = labels)
-  
-  result$mean <- 0
-  result$std <- 0
-  
-  for (label in labels) {
-    mat <- data[[label]]
-    
-    if (ncol(mat) < k) {
-      print('error')
-      return(NULL)
-    }
-    
-    temp.vec <- mat[, k]
-    
-    result[[label,'mean']] <- MyMean(temp.vec)
-    result[[label,'std']] <- MyStd(temp.vec)
-  }
-  
+MyAnalysis <- function(vec) {
+  result <- c('Mean' = MyMean(vec), 'Std' = MyStd(vec))
   return(result)
 }
 
-MyAnalysis(data,9)
+MyAnalysis(data)
 
 
 #############################
@@ -110,7 +83,7 @@ val2 <- rnorm(n = 4, mean = 10, sd = 5)
 
 mat <- matrix(data = c(val1,val2), ncol = 2, byrow = FALSE)
 colnames(mat) <- c('val1', 'val2')
-df <- data.frame( row.names = particiant, gender, val1, val2)
+df <- data.frame( row.names = particiant.name, gender, val1, val2)
 
 # The functions apply() and sapply() simplify calculations that 
 # are reapeated over matrices and data.frames.

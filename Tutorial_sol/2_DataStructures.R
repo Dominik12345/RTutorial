@@ -14,52 +14,45 @@ z <- rep(1,10)
 
 words <- c('This', 'is', 'a', 'sentence', '.')
 
-# R converts different data types automatically
+# What happens if you do ... ?
 
 mixed.vector1 <- c(TRUE, 3.1)
 mixed.vector2 <- c(TRUE, 'word', 3.7)
 
-# we can concatenate vectors
+# What happens if you concatenate vectors ... ?
 
 y <- c(mixed.vector1, mixed.vector2)
 
-# and perform basic operations componentwise
-
+# Try to do basic operations and comparisons with vectors.
 x <- c(2,4)
 y <- c(1,2)
 
-x + y
-x - y
-x * y
-x / y
+# Question: What is the difference between & and &&, | and || ?
 
-x ** 2
-
-x > 3
-
-# note the recycling
+# Note the recycling.
 
 x <- 4:15
 y <- c(1,-1)
 
 x.alternating <- x * y
 
-# we can grap one k-th component of a vector using [k]
+# We can grap the k-th component of a vector using [k]
 
 x.alternating[2]
+
+# or several components.
+
 x.alternating[c(2,4,6)]
 
-x.alternating[1] <- 'word'
+# Try to set only the first component of x.alternating to 'word'
 
-# we get the number of components of vector x using length(x)
+# We get the number of components of vector x using length(x).
 
 length(x.alternating)
 
 # Question: What is the difference between 
 #           x <- c() and x <- numeric(0) ?
 
-x <- c()
-x <- numeric(0)
 
 #############################
 # 2.2 Exercise              #
@@ -107,7 +100,6 @@ plot(data.subset)
 
 relative.number <- length(data.subset) / length(data)
 
-
 #############################
 # 2.3 named vectors         #
 #############################
@@ -118,16 +110,13 @@ names <- c('mean', 'std', 'rel num')
 results <- values
 names(results) = names
 
-results[1]
-results['mean']
-
-
+# Check results[1] and results['mean']
 
 #############################
 # 2.4 matrices              #
 #############################
 
-# matrices are the two dimensional extension of vectors
+# Matrices are the two dimensional extension of vectors
 
 A <- matrix( rep(TRUE,20), nrow = 5, ncol = 4)
 
@@ -135,40 +124,28 @@ B <- matrix(c(1,'word', TRUE, 3.1), nrow = 2)
 
 C <- c(TRUE,FALSE)
 
-# we can get the i,j - component
-B[1,2]
+# Try to grap the 1-2-component of B
 
-# or the i-th row/column
-B[1,]
-B[,1]
+# or the 1-st row/column of B.
 
-#note 
+#Note 
 is.vector(B[1,])
 
 # Question: What is the result of C * A ? ( A * C ?)
 
-A * C
+# We can combine matrices using cbind and rbind.
+# Try it out.
 
-C * A
-
-# i.e. in doubt, matrices are treated as vectors
-
-# We can combine matrices
 A <- matrix( c('a','b','c','d'),nrow = 2)
-
-cbind(A,A)
-rbind(A,A)
 
 # We can also perfrom matrix multiplication as known
 # from linear algebra and invert square matrices
 
 A <- matrix( c(0,1/2,1,0), nrow = 2)
 
-A * A   # componentwise matrix multiplication
-A %*% A # algebraic matrix multiplication
+# Question: What is the difference between A * A and A %*% A ?
 
-solve(A) # inverse, if possible
-
+# Try solve(A)
 
 #############################
 # 2.5 Exercise              #
@@ -194,9 +171,9 @@ customers <- c('A' = 10000, 'B' = 4000, 'C' = 500)
 customers.A <- c(as.numeric( customers['A'] ))
 
 M <- matrix( data = c(  0.95, 0.1, 0.1,
-                       0.025, 0.9,   0,
-                       0.025,   0, 0.9 ),
-                       nrow = 3, byrow = TRUE)
+                        0.025, 0.9,   0,
+                        0.025,   0, 0.9 ),
+             nrow = 3, byrow = TRUE)
 rownames(M) <- c('A','B','C')
 colnames(M) <- c('A','B','C')
 
@@ -206,14 +183,11 @@ for (i in 1:36) {
 }
 plot(customers.A)
 
-
-
-
 #############################
 # 2.6 lists                 #
 #############################
 
-# lists can store several types of variables
+# Lists can store several types of variables.
 
 A <- matrix( rnorm(n = 6), nrow = 2)
 names <- c('x1', 'x2', 'x3')
@@ -221,8 +195,8 @@ value <- 3
 
 data <- list( 'matrix' = A, 'names' = names, 'value' = value, 'object' = NULL)
 
-data[[1]]
-data$matrix
+# We get items of list list using [[]] and $.
+# Check it out.
 
 #############################
 # 2.7 Exercise              #
@@ -244,12 +218,11 @@ for (i in 1:length(data)) {
   names(data)[i] = class(data[[i]])
 }
 
-
 #############################
 # 2.8 data frames           #
 #############################
 
-# data frames are lists of vectors
+# data.frames are lists of vectors.
 
 data <- mtcars
 print(data)
@@ -276,19 +249,6 @@ data <- cbind.data.frame(data, val)
 # Use class() and typeof() to get the classes and types of data and 
 # of the columns of data.
 
-print( class(data) )
-for (label in names(data)) {
-  print(paste(label,class(data[[label]]) , sep = ' is object of class '))
-  
-}
-
-print( typeof(data) )
-for (label in names(data)) {
-  print(paste(label,typeof(data[[label]]) , sep = ' is object of type '))
-  
-}
-
-
 # Use class conversion, e.g.
 
 x <- 2.1
@@ -298,20 +258,11 @@ x <- as.factor(x)
 x <- as.numeric(x)
 
 # to convert the categorical variables of data into factors.
-
 data$cyl <- as.factor(data$cyl)
 data$vs <- as.factor(data$vs)
 data$am <- as.factor(data$am)
 data$gear <- as.factor(data$gear)
 data$carb <- as.factor(data$carb)
-
 # Check out the classes and types again.
-
-print( class(data) )
-print( typeof(data)) 
-for (label in names(data)) {
-  print(paste(label,class(data[[label]]) , sep = ' is object of class '))
-  print(paste(label,typeof(data[[label]]) , sep = ' is object of type '))
-}
 
 # Question: Explain the type of data$val. 

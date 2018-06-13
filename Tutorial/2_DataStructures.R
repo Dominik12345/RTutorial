@@ -69,7 +69,6 @@ plot(data)
 #    within mean +/- std and compute 
 #    their relative number number
 
-
 #############################
 # 2.3 named vectors         #
 #############################
@@ -135,7 +134,6 @@ A <- matrix( c(0,1/2,1,0), nrow = 2)
 # Compute the customer distribution in the next 3 years.
 # Plot the number of customers of as a time series
 
-
 #############################
 # 2.6 lists                 #
 #############################
@@ -164,7 +162,6 @@ data <- list( 1:5 , TRUE , matrix( rnorm(n = 4), nrow = 2) , NULL,
 # Label the elements of data with their mode, i.e.
 # integer, numeric, logical, NULL, complex, character
 # Write a short algorithm, that works for arbitrary lists.
-
 
 #############################
 # 2.8 data frames           #

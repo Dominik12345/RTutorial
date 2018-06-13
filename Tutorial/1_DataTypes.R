@@ -33,7 +33,9 @@ rm(list=ls())
 
 # Check mode(A)
 
-# Which effect have the operatons A & B and A | B ?
+# Question: Which effect have the operatons A & B and A | B ?
+
+# Note: They return logicals 
 
 ############
 # numerics #
@@ -44,7 +46,10 @@ rm(list=ls())
 # Initialize y with the value x
 
 # Change the value if y to 3.1. 
+
 # Did you notice something?
+
+# Note: y <- x copies the value of x
 
 ############
 # integers #
@@ -76,15 +81,11 @@ sub('wo', 'hree', w)
 
 # Question: What is the value of word3 ?
 
-
 #############################
 # 1.2 Basic Operations      #      
 #############################
 
 # numeric calculation
-
-x <- 3
-y <- 4
 
 # Try to do basic numeric calculations.
 
@@ -94,7 +95,6 @@ y <- 4
 
 x <- 3
 y <- 'Hans'
-
 
 #############################
 # 1.3 If statements         #      
@@ -136,5 +136,3 @@ for (k in (1:10) ) {
 # note: n has to be integer
 
 n <- 7.25
-
-

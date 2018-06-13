@@ -62,7 +62,7 @@ get_artist.song <- function(object) {
 # 1) Write an is.song method.
 # 2) Implement a method play. Use the build-in function
 #    browseURL.
-# 2) Implement a constructor function.
+# 3) Implement a constructor function.
 
 
 # Possible solution:
